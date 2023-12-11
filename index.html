@@ -24,6 +24,7 @@
             <button class="tablinks" onclick="openTab(event, 'Accomplishments')">Accomplishments</button>
             <button class="tablinks" onclick="openRedirect('workexamples.html')">Work Examples</button>
             <button class="tablinks" onclick="openTab(event, 'Web Project')">Web Project</button>
+            <button class="tablinks" onclick="openTab(event, 'Database')">Database</button>
             <button class="tablinks" onclick="openTab(event, 'CoverLetter')">Cover Letter</button>
             <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
             <button class="tablinks" onclick="openTab(event, 'Capstoneproject')">Capstone Project</button>
@@ -361,7 +362,45 @@
 
             </html>
         </div>
+<div id="Database" class="tabcontent">
+            <h2>Database Project 1</h2>
+            
+            <pre>
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    hire_date DATE
+);
 
+INSERT INTO employees (employee_id, first_name, last_name, hire_date)
+VALUES
+    (1, 'John', 'Smith', '2020-01-15'),
+    (2, 'Jane', 'Doe', '2019-05-20'),
+    (3, 'Bob', 'Johnson', '2021-03-08'),
+    (4, 'Emily', 'Davis', '2022-02-10');
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(255)
+);
+
+INSERT INTO departments (department_id, department_name)
+VALUES
+    (1, 'IT'),
+    (2, 'HR'),
+    (3, 'Marketing'),
+    (4, 'Finance');
+
+CREATE TABLE employee_department (
+    employee_id INT,
+    department_id INT,
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id),
+    PRIMARY KEY (employee_id, department_id)
+);
+            </pre>
+        </div>
         
  </div>
     <script type="text/javascript" src="assets/scripts/index.js"></script>
