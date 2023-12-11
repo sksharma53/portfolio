@@ -462,7 +462,7 @@ CREATE TABLE employee_department (
     DECLARE
         v_old_salary NUMBER;
     BEGIN
-        -- Capture the old salary before the update
+        
         v_old_salary := :OLD.Salary;
 
         
@@ -472,7 +472,7 @@ CREATE TABLE employee_department (
         
 
     END SalaryUpdateTrigger;
-    /
+    
     </pre>
 </div>
 
