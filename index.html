@@ -265,105 +265,67 @@
 
  <div id="Web Project" class="tabcontent">
      <h2> Web Project 1</h2>
-                <title>HTML/CSS Assignment</title>
-                <style>
-                    body {
-                        background: url('assets/images/Webpage Background.jpg') repeat-x;
-                        width: 800px;
-                        margin: 0 auto;
-                    }
+                <title>HTML/CSS Review Sharmila Sharma</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Sharmila Sharma"/>
+    <meta name="description" content="A review for basic HTML/CSS principles"/>
+    <meta name="keywords" content="Portfolio, HTML/CSS, review"/>
+    <link href="assets/style/screen.css" rel="stylesheet" type="text/css"/>
+</head>
 
-                    header {
-                        background: url('assets/images/Webpage Header.jpg') no-repeat;
-                        height: 150px;
-                        text-align: center;
-                    }
+   
+<div id="page">
+<body>
+    <div id="header">
+        <header id="head-img"><img src="assets/images/webpage-header.jpg"></header>
+        <ul>
+            <li><a href="https://ualr.edu/">UALR</a></li>
+            <li><a href="">Course Homepage</a></li>
+            <li><a href="https://www.w3.org/">W3C</a></li>
+            <li><a href="https://www.littlerock.gov/">Little Rock</a></li>
+        </ul>
+    </div>
+    
+    <div id="content">
+    <h1>Assignment 1</h1>
 
-                    nav ul {
-                        list-style-type: none;
-                        background-color: #333;
-                        text-align: center;
-                    }
+    <div id="globe" class="globe">
+        <img src="assets/images/webpage-image-1.jpg" alt="Globe">
+    </div>
 
-                    nav ul li {
-                        display: inline;
-                        padding: 10px;
-                    }
+    <p>The most important goal of effective communication is clarity.
+    Clarity is not the same as simplicity. Often, simple thing are clear 
+    is about a complex relationship that can only be presented with a necessarily 
+    large amount of data.
+    </p>
 
-                    nav ul li a {
-                        text-decoration: none;
-                        color: white;
-                        padding: 5px 10px;
-                    }
+    <div id="alert" class="alert"><p>This complexity can be made to appear clear by effective opragnization
+        and presentation and need not be reduced to meaningless "bit-sized"
+        chunks of data, as simplification does.
+    </p></div>
 
-                    nav ul li a:hover {
-                        background-color: lightgrey;
-                    }
+    <p>Clarity refers to the focus on one particular message or goal at a time,
+        rather than attempting to accomplish too much at once. Simplicity is often 
+        responsible for the "dumbing" of information rather than the illumination of it.
+    </p>
 
-                    .content {
-                        padding: 20px;
-                    }
+    <h3>Questions</h3>
+    <p>Please answer the following questions below. Remeber to markup the information
+        properly using HTML.</p>
+    <h4>Explain the difference between the "alt" attribute and the "title" attribute.</h4>
+    <p>The "alt" attribute in HTML, applied to the `<img>` element, serves the crucial role of providing alternative text for images. This text is essential for accessibility, aiding users with visual impairments by describing the image or its function. The "alt" attribute content is also displayed if the image fails to load. In contrast, the "title" attribute is a more general-purpose attribute used to provide supplementary information about HTML elements, such as links or images. This information is displayed as a tooltip when users hover over the element. Unlike "alt," the "title" attribute is not primarily focused on accessibility but offers additional context or details for users.</p>
+    <h4>Please provide an example of how to mark up a definition from the dictionary below</h4>
+    <p>To mark up a definition in HTML, you can use the  (definition list),  (definition term), and  (definition description) elements. The  element creates the overall list, while  is used for the term or word being defined, and  is used for the corresponding definition or description. </p>
+    <h4>Provide an example of link pointing to your favorite site</h4>
+    <p><a href="https://www.raisingcanes.com/">The best chicken tender</a></p>
+    
+    </div>
+    <footer id="colophon">
+        &copy; 2023, Sharmila Sharma -<a href="#top">Back To Top</a>
+    </footer>   
 
-                    .float-right {
-                        float: right;
-                    }
-
-                    .with-border {
-                        border: 2px solid black;
-                    }
-
-                    .and-margin {
-                        margin: 10px;
-                    }
-
-                    .alert {
-                        background-color: lightyellow;
-                        color: darkred;
-                    }
-
-                    .content h2,
-                    .content h3,
-                    .content h4 {
-                        color: #007acc;
-                    }
-                </style>
-            </head>
-
-            <body>
-                <header>
-                    <h1>Assignment 1</h1>
-                </header>
-
-                <nav>
-                    <ul>
-                        <li><a href="#" title="UALR">UALR</a></li>
-                        <li><a href="#" title="Course Homepage">Course Homepage</a></li>
-                        <li><a href="#" title="W3C">W3C</a></li>
-                        <li><a href="https://www.example.com" title="Little Rock">Little Rock</a></li>
-                    </ul>
-                </nav>
-
-                <section class="content">
-                    <h2>Question 1. Explain the difference between the "alt" attribute and the "title" attribute.</h2>
-                    <p>Answer: The "alt" attribute is used to provide alternative text for an image, describing its content for accessibility and displaying it if the image fails to load. On the other hand, the "title" attribute is used to provide supplementary information about an element, often displayed as a tooltip when the user hovers over the element. While "alt" is primarily for accessibility, "title" is more for additional information or clarification.</p>
-
-                    <h3>Question 2: Please provide an example of how to mark up a definition from the directory below.</h3>
-                    <p>Answer: To mark up a definition, we can use the <dl> (definition list), <dt> (definition term), and <dd> (definition description) HTML elements.</p>
-
-                    <h4>Question 3. Provide an example of a link pointing to your favorite site. </h4>
-                    <p>Answer: My favorite site is Youtube</p>
-                    <a href="https://www.youtube.com/" title="Go to Youtube">Go to Youtube</a>
-
-                    <img src="assets/images/Webpage Image.jpg" alt="Webpage Image" class="float-right with-border and-margin">
-                </section>
-
-                <footer>
-                    <p>&copy; Sharmila Sharma 2023 | <a href="#top">Back to Top</a></p>
-                </footer>
-            </body>
-
-            </html>
-        </div>
+</body>
+</div>
 <div id="Database" class="tabcontent">
             <h2>Database Project 1</h2>
             
