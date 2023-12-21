@@ -467,117 +467,109 @@
     </footer>
 </div>
 <div id="Database" class="tabcontent">
-            <h1>Database Project 1</h1>
-            
-            <pre>
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    hire_date DATE
-);
+              <h2>Database Project 1</h2>
+              <p>This is some of my work in my current database class. This shows that I can work my way around a database and querie certain things.</p>
 
-INSERT INTO employees (employee_id, first_name, last_name, hire_date)
-VALUES
-    (1, 'John', 'Smith', '2020-01-15'),
-    (2, 'Jane', 'Doe', '2019-05-20'),
-    (3, 'Bob', 'Johnson', '2021-03-08'),
-    (4, 'Emily', 'Davis', '2022-02-10');
 
-CREATE TABLE departments (
-    department_id INT PRIMARY KEY,
-    department_name VARCHAR(255)
-);
+              <h1>Create Database</h1>
+    <code>
+        CREATE DATABASE realestate_database;<br>
+        USE realestate_database;
+    </code>
 
-INSERT INTO departments (department_id, department_name)
-VALUES
-    (1, 'IT'),
-    (2, 'HR'),
-    (3, 'Marketing'),
-    (4, 'Finance');
+    <h1>Insert Data into Owner Table</h1>
+    <code>
+        INSERT INTO owner (ESSN, Custnumber, name)<br>
+        VALUES<br>
+        &emsp;(123456789, 1, 'John Smith'),<br>
+        &emsp;(987654321, 2, 'Jane Doe'),<br>
+        &emsp;(555555555, 3, 'Bob Johnson'),<br>
+        &emsp;(111111111, 4, 'Emily Davis');
+    </code>
 
-CREATE TABLE employee_department (
-    employee_id INT,
-    department_id INT,
-    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-    FOREIGN KEY (department_id) REFERENCES departments(department_id),
-    PRIMARY KEY (employee_id, department_id)
-);
-            </pre>
-        </div>
-        <div id="Database" class="tabcontent">
-    <h2>Database Project 2</h2>
-    
+    <h1>Insert Data into Agent Table</h1>
+    <code>
+        INSERT INTO agent (agent_id, name, ssn, bdate)<br>
+        VALUES<br>
+        &emsp;(1, 'Michael Brown', 123456789, '1980-05-10'),<br>
+        &emsp;(2, 'Sarah Johnson', 987654321, '1975-08-25'),<br>
+        &emsp;(3, 'David Wilson', 555555555, '1988-01-15'),<br>
+        &emsp;(4, 'Lisa Lee', 111111111, '1995-11-20');
+    </code>
+
+    <h1>Insert Data into Property Table</h1>
+    <code>
+        INSERT INTO property (property_id, address, agent_id, transaction_id)<br>
+        VALUES<br>
+        &emsp;(1, '123 Main St', 1, 1),<br>
+        &emsp;(2, '456 Elm St', 2, 2),<br>
+        &emsp;(3, '789 Oak St', 3, 3),<br>
+        &emsp;(4, '321 Pine St', 4, 4);
+    </code>
+
+    <h1>Insert Data into Transactions Table</h1>
+    <code>
+        INSERT INTO transactions (transaction_id, property_id, ESSN, sale_price, transaction_date)<br>
+        VALUES<br>
+        &emsp;(1, 1, 123456789, 100000.00, '2022-01-01'),<br>
+        &emsp;(2, 2, 987654321, 150000.00, '2022-02-15'),<br>
+        &emsp;(3, 3, 555555555, 200000.00, '2022-03-10'),<br>
+        &emsp;(4, 4, 111111111, 120000.00, '2022-04-20');
+    </code>
+              <h2>Database Project 2</h2>
+              <p>This is some of my work in my current database class. This shows that I can use SQL to do calculations.</p>
+              <h2>Connor Beckwith - PL/PQL Assignment 2</h2>
+    <p>Date: 4/27/23</p>
     <pre>
-    CREATE TABLE employees (
-        employee_id INT PRIMARY KEY,
-        first_name VARCHAR(255),
-        last_name VARCHAR(255),
-        hire_date DATE
-    );
-
-    INSERT INTO employees (employee_id, first_name, last_name, hire_date)
-    VALUES
-        (1, 'John', 'Smith', '2020-01-15'),
-        (2, 'Jane', 'Doe', '2019-05-20'),
-        (3, 'Bob', 'Johnson', '2021-03-08'),
-        (4, 'Emily', 'Davis', '2022-02-10');
-
-    CREATE TABLE departments (
-        department_id INT PRIMARY KEY,
-        department_name VARCHAR(255)
-    );
-
-    INSERT INTO departments (department_id, department_name)
-    VALUES
-        (1, 'IT'),
-        (2, 'HR'),
-        (3, 'Marketing'),
-        (4, 'Finance');
-
-    CREATE TABLE employee_department (
-        employee_id INT,
-        department_id INT,
-        FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-        FOREIGN KEY (department_id) REFERENCES departments(department_id),
-        PRIMARY KEY (employee_id, department_id)
-    );
-
-   
-    CREATE TABLE EmployeeSalary (
-        EmployeeID INT PRIMARY KEY,
-        EmployeeName VARCHAR2(50),
-        Salary NUMBER
-    );
-
-   
-    CREATE TABLE SalaryAudit (
-        AuditID INT PRIMARY KEY,
-        EmployeeID INT,
-        OldSalary NUMBER,
-        NewSalary NUMBER,
-        UpdateDate DATE
-    );
-
-   
-    CREATE OR REPLACE TRIGGER SalaryUpdateTrigger
-    BEFORE UPDATE ON EmployeeSalary
-    FOR EACH ROW
-    DECLARE
-        v_old_salary NUMBER;
-    BEGIN
-        
-        v_old_salary := :OLD.Salary;
-
-        
-        INSERT INTO SalaryAudit (AuditID, EmployeeID, OldSalary, NewSalary, UpdateDate)
-        VALUES (SalaryAudit_seq.NEXTVAL, :NEW.EmployeeID, v_old_salary, :NEW.Salary, SYSDATE);
-
-        
-
-    END SalaryUpdateTrigger;
-    
+        <code>
+DECLARE
+  type grade_array is varray(5) of varchar2(1);
+  grades grade_array := grade_array('A', 'B', 'C', 'D', 'F');
+  grade_count integer := 0;
+BEGIN
+  FOR i IN 1..grades.count LOOP
+    SELECT count(*) INTO grade_count FROM gradeReport WHERE grade = grades(i);
+    IF grade_count > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('There are a total of ' || grade_count || ' ' || grades(i) || '''s');
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('No student made a ' || grades(i));
+    END IF;
+  END LOOP;
+END;
+        </code>
     </pre>
+    <p>This program calculates the sum of the first ten even numbers using a loop.</p>
+    <p>The result is 110.</p>
+    <h3>3. For Loop Program:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer :=0;
+BEGIN
+  FOR i IN 1..10 LOOP
+    sm := sm + 2*i;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 110</p>
+    <h3>Why Loop Program:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer :=0;
+  i binary_integer :=0;
+BEGIN
+  WHILE i < 10 LOOP
+    i := i + 1;
+    sm := sm + 2*i;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 110</p>
         </div>
         <div id="Soft Skills" class="tabcontent">
     <h2>Soft Skills Project 1</h2>
