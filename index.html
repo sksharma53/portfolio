@@ -563,66 +563,10 @@ END;
     <p>Result: 100</p>
 </div>
 
-        <div id="Programming" class="tabcontent">
-              <h2>Programming Project 1</h2>
-            <p>Here is my code from a tic tac toe game that I implemented.</p>
-            <body>
-    <main>
-        <h1>The BMI Calculator</h1>
-        <script>
-            "use strict";
-            
-            // Get user input for weight (in kilograms) and height (in meters)
-            const weight = parseFloat(prompt("Enter your weight (in kilograms)"));
-            const height = parseFloat(prompt("Enter your height (in meters)"));
+        
+              
 
-            // Calculate BMI
-            const bmi = weight / (height * height);
-
-            // Determine BMI category
-            let category;
-            if (bmi < 18.5) {
-                category = "Underweight";
-            } else if (bmi >= 18.5 && bmi < 24.9) {
-                category = "Normal Weight";
-            } else if (bmi >= 25 && bmi < 29.9) {
-                category = "Overweight";
-            } else {
-                category = "Obese";
-            }
-
-            // Display the results in HTML
-            const html = `<p><label>Weight: </label>${weight} kilograms</p>
-                <p><label>Height: </label>${height} meters</p>
-                <p><label>BMI: </label>${bmi.toFixed(2)}</p>
-                <p><label>Category: </label>${category}</p>`;
-            document.write(html);
-        </script>    
-    </main>
-</body>
-<h2>Programming Project 2</h2>
-            <body>
-    <main>
-        <h1>The Rectangle Area Calculator</h1>
-        <script>
-            "use strict";
-            
-            // Get user input for the rectangle dimensions
-            const length = parseFloat(prompt("Enter the length of the rectangle (in meters)"));
-            const width = parseFloat(prompt("Enter the width of the rectangle (in meters)"));
-
-            // Calculate the area of the rectangle
-            const area = length * width;
-
-            // Display the results in HTML
-            const html = `<p><label>Length: </label>${length} meters</p>
-                <p><label>Width: </label>${width} meters</p>
-                <p><label>Area: </label>${area.toFixed(2)} square meters</p>`;
-            document.write(html);
-        </script>    
-    </main>
-</body>
-        </div>
+                
         <div id="SoftSkills" class="tabcontent">
     <h2>Soft Skills Project 1</h2>
 
