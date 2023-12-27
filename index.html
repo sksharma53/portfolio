@@ -463,118 +463,105 @@
 </div>
 
 <div id="Database" class="tabcontent">
-            <h2>Database Project 1</h2>
-            
-            <pre>
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    hire_date DATE
-);
+    <h2>Database Project 1</h2>
+    <p>This is some of my work in my current database class. This demonstrates my proficiency in designing and managing databases, as well as executing complex queries.</p>
 
-INSERT INTO employees (employee_id, first_name, last_name, hire_date)
-VALUES
-    (1, 'John', 'Smith', '2020-01-15'),
-    (2, 'Jane', 'Doe', '2019-05-20'),
-    (3, 'Bob', 'Johnson', '2021-03-08'),
-    (4, 'Emily', 'Davis', '2022-02-10');
+    <h1>Create Database</h1>
+    <code>
+        CREATE DATABASE bookstore_database;<br>
+        USE bookstore_database;
+    </code>
 
-CREATE TABLE departments (
-    department_id INT PRIMARY KEY,
-    department_name VARCHAR(255)
-);
+    <h1>Insert Data into Customer Table</h1>
+    <code>
+        INSERT INTO customer (CustomerID, FirstName, LastName, Email)<br>
+        VALUES<br>
+        &emsp;(101, 'Sharmila', 'Sharma', 'sharmila@example.com'),<br>
+        &emsp;(102, 'Rahul', 'Reddy', 'rahul@example.com'),<br>
+        &emsp;(103, 'Priya', 'Patel', 'priya@example.com'),<br>
+        &emsp;(104, 'Amit', 'Agarwal', 'amit@example.com');
+    </code>
 
-INSERT INTO departments (department_id, department_name)
-VALUES
-    (1, 'IT'),
-    (2, 'HR'),
-    (3, 'Marketing'),
-    (4, 'Finance');
+    <h1>Insert Data into Book Table</h1>
+    <code>
+        INSERT INTO book (BookID, Title, Author, Price)<br>
+        VALUES<br>
+        &emsp;(1, 'The Art of Programming', 'Donald Knuth', 35.99),<br>
+        &emsp;(2, 'Database Management Essentials', 'Abraham Silberschatz', 29.99),<br>
+        &emsp;(3, 'Web Development with HTML5 and CSS3', 'Mark T. Chapman', 24.99),<br>
+        &emsp;(4, 'Machine Learning for Beginners', 'Samuel Armstrong', 39.99);
+    </code>
 
-CREATE TABLE employee_department (
-    employee_id INT,
-    department_id INT,
-    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-    FOREIGN KEY (department_id) REFERENCES departments(department_id),
-    PRIMARY KEY (employee_id, department_id)
-);
-            </pre>
-        </div>
-        <div id="Database" class="tabcontent">
+    <h1>Insert Data into Order Table</h1>
+    <code>
+        INSERT INTO orders (OrderID, CustomerID, BookID, Quantity, OrderDate)<br>
+        VALUES<br>
+        &emsp;(1, 101, 1, 2, '2022-01-15'),<br>
+        &emsp;(2, 102, 2, 1, '2022-02-20'),<br>
+        &emsp;(3, 103, 3, 3, '2022-03-10'),<br>
+        &emsp;(4, 104, 4, 1, '2022-04-05');
+    </code>
+
     <h2>Database Project 2</h2>
-    
+    <p>This is another project in my database class, showcasing my ability to use SQL for more advanced calculations and programming.</p>
+    <h2>Sharmila Sharma - PL/SQL Assignment</h2>
+    <p>Date: 5/12/23</p>
     <pre>
-    CREATE TABLE employees (
-        employee_id INT PRIMARY KEY,
-        first_name VARCHAR(255),
-        last_name VARCHAR(255),
-        hire_date DATE
-    );
-
-    INSERT INTO employees (employee_id, first_name, last_name, hire_date)
-    VALUES
-        (1, 'John', 'Smith', '2020-01-15'),
-        (2, 'Jane', 'Doe', '2019-05-20'),
-        (3, 'Bob', 'Johnson', '2021-03-08'),
-        (4, 'Emily', 'Davis', '2022-02-10');
-
-    CREATE TABLE departments (
-        department_id INT PRIMARY KEY,
-        department_name VARCHAR(255)
-    );
-
-    INSERT INTO departments (department_id, department_name)
-    VALUES
-        (1, 'IT'),
-        (2, 'HR'),
-        (3, 'Marketing'),
-        (4, 'Finance');
-
-    CREATE TABLE employee_department (
-        employee_id INT,
-        department_id INT,
-        FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-        FOREIGN KEY (department_id) REFERENCES departments(department_id),
-        PRIMARY KEY (employee_id, department_id)
-    );
-
-   
-    CREATE TABLE EmployeeSalary (
-        EmployeeID INT PRIMARY KEY,
-        EmployeeName VARCHAR2(50),
-        Salary NUMBER
-    );
-
-   
-    CREATE TABLE SalaryAudit (
-        AuditID INT PRIMARY KEY,
-        EmployeeID INT,
-        OldSalary NUMBER,
-        NewSalary NUMBER,
-        UpdateDate DATE
-    );
-
-   
-    CREATE OR REPLACE TRIGGER SalaryUpdateTrigger
-    BEFORE UPDATE ON EmployeeSalary
-    FOR EACH ROW
-    DECLARE
-        v_old_salary NUMBER;
-    BEGIN
-        
-        v_old_salary := :OLD.Salary;
-
-        
-        INSERT INTO SalaryAudit (AuditID, EmployeeID, OldSalary, NewSalary, UpdateDate)
-        VALUES (SalaryAudit_seq.NEXTVAL, :NEW.EmployeeID, v_old_salary, :NEW.Salary, SYSDATE);
-
-        
-
-    END SalaryUpdateTrigger;
-    
+        <code>
+DECLARE
+  type grade_array is varray(5) of varchar2(1);
+  grades grade_array := grade_array('A', 'B', 'C', 'D', 'F');
+  grade_count integer := 0;
+BEGIN
+  FOR i IN 1..grades.count LOOP
+    SELECT count(*) INTO grade_count FROM gradeReport WHERE grade = grades(i);
+    IF grade_count > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('There are a total of ' || grade_count || ' ' || grades(i) || '''s');
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('No student made a ' || grades(i));
+    END IF;
+  END LOOP;
+END;
+        </code>
     </pre>
-        </div>
+    <p>This program calculates the sum of the first ten odd numbers using a loop.</p>
+    <p>The result is 100.</p>
+    <h3>Loop Program for Odd Numbers:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer := 0;
+BEGIN
+  FOR i IN 1..20 LOOP
+    IF i MOD 2 = 1 THEN
+      sm := sm + i;
+    END IF;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 100</p>
+    <h3>While Loop Program:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer := 0;
+  i binary_integer := 0;
+BEGIN
+  WHILE i < 20 LOOP
+    i := i + 1;
+    IF i MOD 2 = 1 THEN
+      sm := sm + i;
+    END IF;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 100</p>
+</div>
+
      <div id="Soft Skills" class="tabcontent">
     <h2>Soft Skills Project 1</h2>
 
