@@ -563,7 +563,109 @@ END;
     <p>Result: 100</p>
 </div>
 
-        
+        <div id="Programming" class="tabcontent">
+    <h2>Programming Project 1</h2>
+    <p>Here is the code I wrote for a number guessing game in Java. You guess a number between 1-100, and the program will tell you higher or lower until you guess the correct number.</p>
+
+    <pre>
+        <code class="language-java">
+            import java.util.Random;
+            import java.util.Scanner;
+
+            public class NumberGuessingGame {
+                public static void main(String[] args) {
+                    Random random = new Random();
+                    int secretNumber = random.nextInt(100) + 1;
+                    int numGuesses = 0;
+
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Welcome to the Number Guessing Game!");
+
+                    while (true) {
+                        System.out.print("Guess a number between 1 and 100: ");
+                        int guess = scanner.nextInt();
+                        numGuesses++;
+
+                        if (guess < secretNumber) {
+                            System.out.println("Too low, try again!");
+                        } else if (guess > secretNumber) {
+                            System.out.println("Too high, try again!");
+                        } else {
+                            System.out.println("Congratulations, you guessed the number in " + numGuesses + " guesses!");
+                            break;
+                        }
+                    }
+
+                    scanner.close();
+                }
+            }
+        </code>
+    </pre>
+            <div id="Programming" class="tabcontent">
+    <h2>Programming Project 2</h2>
+    <p>Here is the code for a simple calculator program in Java. The program takes two numbers and an operation (+, -, *, /) as input and performs the calculation.</p>
+
+    <pre>
+        <code class="language-java">
+            import java.util.Scanner;
+
+            public class SimpleCalculator {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+
+                    while (true) {
+                        System.out.println("Simple Calculator");
+                        System.out.print("Enter the first number: ");
+                        double num1 = scanner.nextDouble();
+
+                        System.out.print("Enter the second number: ");
+                        double num2 = scanner.nextDouble();
+
+                        System.out.print("Enter the operation (+, -, *, /): ");
+                        char operation = scanner.next().charAt(0);
+
+                        double result = performOperation(num1, num2, operation);
+                        System.out.println("Result: " + result);
+
+                        System.out.print("Do you want to perform another calculation? (yes/no): ");
+                        String continueCalculation = scanner.next();
+
+                        if (!continueCalculation.equalsIgnoreCase("yes")) {
+                            break;
+                        }
+                    }
+
+                    System.out.println("Thanks for using the Simple Calculator!");
+                    scanner.close();
+                }
+
+                private static double performOperation(double num1, double num2, char operation) {
+                    switch (operation) {
+                        case '+':
+                            return num1 + num2;
+                        case '-':
+                            return num1 - num2;
+                        case '*':
+                            return num1 * num2;
+                        case '/':
+                            if (num2 != 0) {
+                                return num1 / num2;
+                            } else {
+                                System.out.println("Cannot divide by zero. Please enter a non-zero second number.");
+                                return Double.NaN;
+                            }
+                        default:
+                            System.out.println("Invalid operation. Please enter +, -, *, or /.");
+                            return Double.NaN;
+                    }
+                }
+            }
+        </code>
+    </pre>
+</div>
+
+
+
               
 
                 
